@@ -22,6 +22,7 @@ mobs:register_mob("mobs_mini_animals:giraffe", {
 	curiosity = 0.5,
 
 	attack_type = "dogfight",
+	reach = 1,
 	pathfinding = 1,
 
 	armor = 100,
@@ -43,7 +44,7 @@ mobs:register_mob("mobs_mini_animals:giraffe", {
 	stepheight = 0.6,
 	pushable = true,
 		drops = {
-		{name = "mobs:meat_raw", chance = 2000, min = 1, max = 2},
+		{name = mobs_mini_animals.meat_item, chance = 1, min = 1, max = 2},
 	},
 	-- Standard land hazard profile: lethal in water/lava
 	water_damage = 1,

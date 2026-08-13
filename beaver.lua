@@ -50,7 +50,7 @@ mobs:register_mob("mobs_mini_animals:beaver", {
 	stepheight = 0.6,
 	pushable = true,
 		drops = {
-		{name = "mobs:meat_raw", chance = 2000, min = 1, max = 2},
+		{name = mobs_mini_animals.meat_item, chance = 1, min = 1, max = 2},
 	},
 	-- Semi-aquatic: safe in water, lethal in lava
 	water_damage = 0,
@@ -93,7 +93,8 @@ mobs:register_mob("mobs_mini_animals:beaver", {
 		if math.random(1, 1000) == 1 then
 			local pos = self.object:get_pos()
 			if core.find_node_near(pos, 2, {"group:water"}) then
-				core.set_node(pos, {name="default:junglewood"})
+				local wood = core.get_modpath("mcl_trees") and "mcl_trees:wood_jungle" or "default:junglewood"
+				core.set_node(pos, {name=wood})
 			end
 		end
 

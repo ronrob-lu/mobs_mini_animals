@@ -22,6 +22,7 @@ mobs:register_mob("mobs_mini_animals:fox", {
 	curiosity = 0.5,
 
 	attack_type = "dogfight",
+	reach = 1,
 	pathfinding = 1,
 	specific_attack = {"mobs_mini_animals:koala", "mobs_mini_animals:panda", "mobs_mini_animals:penguin", "mobs_mini_animals:bee", "mobs_mini_animals:beaver", "mobs_mini_animals:bunny", "mobs_mini_animals:chick", "mobs_mini_animals:crab", "mobs_mini_animals:deer", "mobs_mini_animals:hog"},
 
@@ -46,7 +47,7 @@ mobs:register_mob("mobs_mini_animals:fox", {
 	stepheight = 0.6,
 	pushable = true,
 		drops = {
-		{name = "mobs:meat_raw", chance = 2000, min = 1, max = 2},
+		{name = mobs_mini_animals.meat_item, chance = 1, min = 1, max = 2},
 	},
 	-- Standard land hazard profile: lethal in water/lava
 	water_damage = 1,

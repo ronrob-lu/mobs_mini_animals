@@ -22,6 +22,7 @@ mobs:register_mob("mobs_mini_animals:monkey", {
 	curiosity = 0.5,
 
 	attack_type = "dogfight",
+	reach = 1,
 	pathfinding = 1,
 
 	armor = 100,
@@ -42,8 +43,16 @@ mobs:register_mob("mobs_mini_animals:monkey", {
 	jump_height = 3.5,
 	stepheight = 0.6,
 	pushable = true,
+	-- GLB Animation Mapping
+	animation = {
+		speed_normal = 1,
+		stand_start = 0.05, stand_end = 0.95, stand_speed = 1,
+		walk_start = 1.05, walk_end = 1.45, walk_speed = 1,
+		run_start = 1.55, run_end = 1.95, run_speed = 1,
+		eat_start = 2.05, eat_end = 2.80, eat_speed = 1,
+	},
 	drops = {
-		{name = "mobs:meat_raw", chance = 2000, min = 1, max = 2},
+		{name = mobs_mini_animals.meat_item, chance = 1, min = 1, max = 2},
 	},
 	replace_rate = 10,
 	replace_what = {

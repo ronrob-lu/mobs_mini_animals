@@ -22,6 +22,7 @@ mobs:register_mob("mobs_mini_animals:bee", {
 	curiosity = 0.5,
 
 	attack_type = "dogfight",
+	reach = 1,
 	pathfinding = 1,
 	attack_animals = true,
 	attack_players = true,
@@ -53,7 +54,7 @@ mobs:register_mob("mobs_mini_animals:bee", {
 	stepheight = 1.1,
 	pushable = true,
 		drops = {
-		{name = "mobs:meat_raw", chance = 2000, min = 1, max = 2},
+		{name = mobs_mini_animals.meat_item, chance = 1, min = 1, max = 2},
 	},
 	-- Flying/Air mob: Drowns in water, burns in lava
 	water_damage = 1,

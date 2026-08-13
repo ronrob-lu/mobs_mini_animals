@@ -73,6 +73,12 @@ local mob_files = {
 
 mobs_mini_animals = {}
 
+mobs_mini_animals.meat_item = "mobs:meat_raw"
+if core.get_modpath("mcl_mobitems") then
+	mobs_mini_animals.meat_item = "mcl_mobitems:beef"
+end
+
+
 function mobs_mini_animals.inherit_value(val1, val2, min_limit, max_limit)
 	local base = (val1 + val2) / 2
 	-- 15% chance to mutate by +/-10%
