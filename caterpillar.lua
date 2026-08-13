@@ -42,7 +42,7 @@ mobs:register_mob("mobs_mini_animals:caterpillar", {
 	stepheight = 0.6,
 	pushable = true,
 	drops = {
-		{name = "mobs:meat_raw", chance = 1, min = 1, max = 2},
+		{name = "mobs:meat_raw", chance = 2000, min = 1, max = 2},
 	},
 	on_breed = function(self, ent)
 		return mobs_mini_animals.on_breed_custom(self, ent)
@@ -63,8 +63,8 @@ if not mobs.custom_spawn_animal then
 		name = "mobs_mini_animals:caterpillar",
 		nodes = {"group:leaves", "group:flower"},
 		min_light = 10,
-		interval = 60,
-		chance = 5000,
+		interval = 30,
+		chance = 2000,
 		min_height = 1,
 		max_height = 80,
 		day_toggle = true,

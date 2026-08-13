@@ -43,7 +43,7 @@ mobs:register_mob("mobs_mini_animals:giraffe", {
 	stepheight = 0.6,
 	pushable = true,
 		drops = {
-		{name = "mobs:meat_raw", chance = 1, min = 1, max = 2},
+		{name = "mobs:meat_raw", chance = 2000, min = 1, max = 2},
 	},
 	-- Standard land hazard profile: lethal in water/lava
 	water_damage = 1,
@@ -93,8 +93,8 @@ if not mobs.custom_spawn_animal then
 		name = "mobs_mini_animals:giraffe",
 		nodes = {"mcl_core:dry_dirt_with_dry_grass", "mcl_core:dirt_with_grass", "default:dirt_with_grass"},
 		min_light = 10,
-		interval = 60,
-		chance = 8500,
+		interval = 30,
+		chance = 2000,
 		min_height = 1,
 		max_height = 100,
 		day_toggle = true,

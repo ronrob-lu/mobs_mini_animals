@@ -25,6 +25,7 @@ mobs:register_mob("mobs_mini_animals:bee", {
 	pathfinding = 1,
 	attack_animals = true,
 	attack_players = true,
+	attack_monsters = true,
 	attack_npcs = true,
 
 	fly = true,
@@ -52,7 +53,7 @@ mobs:register_mob("mobs_mini_animals:bee", {
 	stepheight = 1.1,
 	pushable = true,
 		drops = {
-		{name = "mobs:meat_raw", chance = 1, min = 1, max = 2},
+		{name = "mobs:meat_raw", chance = 2000, min = 1, max = 2},
 	},
 	-- Flying/Air mob: Drowns in water, burns in lava
 	water_damage = 1,
@@ -93,8 +94,8 @@ if not mobs.custom_spawn_animal then
 		name = "mobs_mini_animals:bee",
 		nodes = {"group:flower"},
 		min_light = 12,
-		interval = 60,
-		chance = 6000,
+		interval = 30,
+		chance = 2000,
 		min_height = 1,
 		max_height = 100,
 		day_toggle = true,

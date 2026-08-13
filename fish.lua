@@ -44,7 +44,7 @@ mobs:register_mob("mobs_mini_animals:fish", {
 	stepheight = 0.1,
 	pushable = true,
 		drops = {
-		{name = "mobs:meat_raw", chance = 1, min = 1, max = 2},
+		{name = "mobs:meat_raw", chance = 2000, min = 1, max = 2},
 	},
 	-- Aquatic animal: Safe in water, suffocates in air, burns in lava
 	water_damage = 0,
@@ -84,8 +84,8 @@ if not mobs.custom_spawn_animal then
 		name = "mobs_mini_animals:fish",
 		nodes = {"mcl_core:water_source", "default:water_source"},
 		min_light = 5,
-		interval = 60,
-		chance = 5000,
+		interval = 30,
+		chance = 2000,
 		min_height = -30,
 		max_height = 10,
 		day_toggle = false,

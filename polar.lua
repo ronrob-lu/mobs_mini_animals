@@ -30,6 +30,7 @@ mobs:register_mob("mobs_mini_animals:polar", {
 	passive = false,
 	attack_animals = true,
 	attack_players = true,
+	attack_monsters = true,
 	attack_npcs = true,
 
 	armor = 100,
@@ -51,7 +52,7 @@ mobs:register_mob("mobs_mini_animals:polar", {
 	stepheight = 0.6,
 	pushable = true,
 		drops = {
-		{name = "mobs:meat_raw", chance = 1, min = 1, max = 2},
+		{name = "mobs:meat_raw", chance = 2000, min = 1, max = 2},
 	},
 	-- Semi-aquatic / Arctic swimmer: Safe in water, lethal in lava
 	water_damage = 0,
@@ -91,8 +92,8 @@ if not mobs.custom_spawn_animal then
 		name = "mobs_mini_animals:polar",
 		nodes = {"mcl_core:snowblock", "mcl_core:ice", "default:snowblock", "default:ice"},
 		min_light = 10,
-		interval = 60,
-		chance = 8500,
+		interval = 30,
+		chance = 2000,
 		min_height = 1,
 		max_height = 100,
 		day_toggle = false,
