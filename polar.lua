@@ -1,0 +1,102 @@
+--[[
+  mobs_mini_animals: Polar Bear Entity Definition
+  
+  AI Behavior Rationale:
+  Massive arctic predator roaming snowy biomes and ice sheets.
+  Able to swim across icy water.
+  
+  Grass-Eating Justification:
+  NON-GRAZER. Carnivore.
+  Zero grass eating behavior enabled. Breeding is not gated by grass consumption.
+--]]
+
+local S = core.get_translator("mobs_mini_animals")
+
+mobs:register_mob("mobs_mini_animals:polar", {
+	type = "monster",
+	pathfinding = 1,
+	passive = false,
+	attack_type = "dogfight",
+	pathfinding = 1,
+	passive = false,
+	damage = 5,
+	hp_min = 15,
+	hp_max = 30,
+	fear_threshold = 0.5,
+	curiosity = 0.5,
+
+	attack_type = "dogfight",
+	pathfinding = 1,
+	passive = false,
+	attack_animals = true,
+	attack_players = true,
+	attack_npcs = true,
+
+	armor = 100,
+	collisionbox = {-0.6, 0, -0.6, 0.6, 1.2, 0.6},
+	visual = "mesh",
+	visual_size = {x = 5.175, y = 5.175},
+	rotate = 180,
+	mesh_animation = "idle",
+	mesh = "animal-polar.glb",
+	textures = {
+		{"colormap.png"}
+	},
+	makes_footstep_sound = true,
+	sounds = {},
+	walk_velocity = 1,
+	run_velocity = 2.5,
+	jump = true,
+	jump_height = 2,
+	stepheight = 0.6,
+	pushable = true,
+		drops = {
+		{name = "mobs:meat_raw", chance = 1, min = 1, max = 2},
+	},
+	-- Semi-aquatic / Arctic swimmer: Safe in water, lethal in lava
+	water_damage = 0,
+	lava_damage = 5,
+	light_damage = 0,
+	fear_height = 3,
+	fly_in = {"mcl_core:water_source", "mcl_core:water_flowing", "default:water_source", "default:water_flowing"},
+	floats = 0,
+
+	-- GLB Animation Mapping
+	animation = {
+		speed_normal = 1,
+		stand_start = 0.05, stand_end = 0.95, stand_speed = 1,
+		walk_start = 1.05, walk_end = 1.45, walk_speed = 1,
+		run_start = 1.55, run_end = 1.95, run_speed = 1,
+		eat_start = 2.05, eat_end = 2.80, eat_speed = 1,
+	},
+	view_range = 20,
+
+	-- Strict Interaction Rules: NOT tameable, NOT rideable, NOT feedable by player, Catchable by net
+			on_breed = function(self, ent)
+		return mobs_mini_animals.on_breed_custom(self, ent)
+	end,
+		do_custom = function(self, dtime)
+		mobs_mini_animals.natural_breed_timer(self)
+	end,
+		on_rightclick = function(self, clicker)
+		if mobs:capture_mob(self, clicker, 0, 80, 0, true, nil) then
+			return
+		end
+	end,
+})
+
+-- Spawning configuration: Spawns in snowy tundra and ice sheets
+if not mobs.custom_spawn_animal then
+	mobs:spawn({
+		name = "mobs_mini_animals:polar",
+		nodes = {"mcl_core:snowblock", "mcl_core:ice", "default:snowblock", "default:ice"},
+		min_light = 10,
+		interval = 60,
+		chance = 8500,
+		min_height = 1,
+		max_height = 100,
+		day_toggle = false,
+	})
+end
+
+mobs:register_egg("mobs_mini_animals:polar", S("Polar Bear"), "inv_animal-polar.png")
